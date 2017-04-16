@@ -1,0 +1,24 @@
+{
+  "name": "signalrclient",
+  "version": "1.0.0",
+  "description": "SignalR Client for WebSockets",
+  "repository": "http://github.com/natificent",
+  "main": "index.js",
+  "dependencies": {
+    "typescript": "^2.2.2",
+    "ws": "^2.2.3"
+  },
+  "devDependencies": {
+    "@types/chai": "^3.5.0",
+    "@types/mocha": "^2.2.40",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "mock-socket": "^6.0.4",
+    "ts-node": "^3.0.2"
+  },
+  "scripts": {
+    "test": "mocha -r ts-node/register ./**/*.test.ts"
+  },
+  "author": "Nate Berent-Spillson",
+  "license": "ISC"
+}
