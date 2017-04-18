@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using WebSocketManager;
 
 namespace SignalrSample
 {
@@ -24,20 +25,19 @@ namespace SignalrSample
 
         public IConfigurationRoot Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public void Configure(IApplicationBuilder app, IServiceProvider serviceProvider)
         {
-            // Add framework services.
-            services.AddMvc();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+            app.UseMvc();
+            app.UseWebSockets();
+            app.MapWebSocketManager("/chat", serviceProvider.GetService<ChatHandler>());
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void ConfigureServices(IServiceCollection services)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
-
-            app.UseMvc();
+            services.AddMvc();
+            services.AddWebSocketManager();
         }
     }
 }

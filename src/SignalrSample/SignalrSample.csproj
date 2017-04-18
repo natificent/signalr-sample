@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <Content Include="wwwroot\client.html" />
+    <Content Include="wwwroot\index.html" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
@@ -19,14 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="WebSocketManager">
-      <HintPath>..\..\lib\WebSocketManager\WebSocketManager.dll</HintPath>
-    </Reference>
-    <Reference Include="WebSocketManager.Common">
-      <HintPath>..\..\lib\WebSocketManager\WebSocketManager.Common.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>
